@@ -3,14 +3,37 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     clean: {
-      files: ['dist']
+      files: ['release/*']
+    },
+    jshint: {
+      files: {
+        src: ['src/**/*.js']
+      }
+    },
+    uglify: {
+
+    },
+    cssmin: {
+
+    },
+    copy: {
+      static: {
+        files: [{
+          expand: true,
+          cwd: 'src/static/',
+          src: ['**/*'],
+          dest: 'release/static/'
+        }]
+      }
     }
   });
 
-  // Load the plugin that provides the "uglify" task.
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
-  // Default task(s).
-  grunt.registerTask('default', ['uglify']);
+  grunt.registerTask('default', ['clean', 'jshint', 'copy:static']);
 
 };
