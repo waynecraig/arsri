@@ -1,5 +1,6 @@
 define(function(require, exports) {
 	require('jquery');
+	require('bootstrap');
 
 	exports.init = function() {
 		$.get('/q', function (data) {
@@ -15,6 +16,7 @@ define(function(require, exports) {
 				$('#nav').append(navitem);
 			}
 			$('#copyright').html(m.copyright);
+			$('.carousel').carousel();
 		});
 	};
 
