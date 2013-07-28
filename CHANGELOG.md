@@ -6,3 +6,9 @@
 * arsri html assets
 * sgj document
 * carousel plugin
+
+### July 24, 2013
+* Basic Auht, andyet auth
+
+### July 25, 2013
+* Passport
