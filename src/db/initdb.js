@@ -13,16 +13,29 @@ MongoClient.connect(dbConfig.dbUrl, function(err, db) {
 
     function removeCallback(err) {
         if (err) throw err;
+        taskNum -= 1;
+        console.log('remove one collection');
+        if (taskNum === 0) {
+            console.log('complete remove');
+            startInsert();
+        }
+    }
 
-        db.collection(key).insert(initData[key], function(err, docs) {
-            if (err) throw err;
+    function startInsert() {
+        for (var key in initData) {
+            taskNum += 1;
+            db.collection(key).insert(initData[key], insertCallback);
+        }
+    }
 
-            taskNum -= 1;
-            console.log('insert data: ' + docs);
-            if (taskNum === 0) {
-                console.log('initialize database complete!');
-                db.close();
-            }
-        });
+    function insertCallback(err, docs) {
+        if (err) throw err;
+
+        taskNum -= 1;
+        console.log('insert data: ' + docs);
+        if (taskNum === 0) {
+            console.log('initialize database complete!');
+            db.close();
+        }
     }
 });
