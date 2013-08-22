@@ -15,7 +15,7 @@ var app = express();
 
 
 // app.use('/upload', express.static('upload'));
-// app.use('/lib', express.static('lib'));
+app.use('/lib', express.static('lib'));
 app.use('/', express.static('public'));
 // app.get('/q', account.ensureAuthenticated, function(req, res) {
 //     query.handleQuery(req, res);
