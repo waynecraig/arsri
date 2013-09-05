@@ -1,20 +1,83 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>首页</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>中铁咨询SGJ-T-CEC-X系列产品</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="./lib/pure/pure-min.css">
+    <link rel="stylesheet" type="text/css" href="./lib/bootstrap/bootstrap.min.css">
+  	<link rel="stylesheet" type="text/css" href="./lib/bootstrap/bootstrap-responsive.min.css">
+  	<link rel="stylesheet" type="text/css" href="./lib/flatui/flat-ui.css">
+
+  	<style type="text/css">
+  		.body_content {
+  			height: 800px;
+  		}
+  		.navbar .nav ul.arsri-product-menu {
+  			width: 310px;
+  		}
+  		.arsri-header {
+  			padding: 50px 0;
+  		}
+  		.arsri-headline {
+			padding: 73px 0 110px;
+			text-align: center;
+		}
+		.arsri-logo {
+			font-size: 50px;
+			font-weight: 900;
+			letter-spacing: -2px;
+			line-height: 60px;
+		}
+		.arsri-logo .logo {
+			background: url(./upload/logo.png) center 0 no-repeat;
+			background-size: 256px 186px;
+			height: 186px;
+			margin: 0 auto 26px;
+			overflow: hidden;
+			text-indent: -9999em;
+			width: 256px;
+		}
+		.arsri-logo small {
+			color: rgba(52, 73, 94, 0.30000000000000004);
+			display: block;
+			font-size: 30px;
+			font-weight: 700;
+			letter-spacing: -1px;
+			padding-top: 5px;
+		}
+  		#arsri-footer {
+			text-align: center;
+			padding: 1em;
+			line-height: 1.7em;
+			background-color: #edeff1;
+			color: #bac1c8;
+			font-size: 15px;
+			margin-top: 20px;
+  		}
+  		.arsri-intro, .arsri-product, .arsri-price, .arsri-contact {
+  			text-align: left;
+  		}
+
+  	</style>
 </head>
 <body>
-    <div class='pure-g-r'>
-        <div class='sidebar pure-u'>
-            <p>Hello</p>
-        </div>
-        <div class='pure-u-1'>
-            <p>Hello</p>
-        </div>
-    </div>
+	<div id="arsri-header"></div>
+	<div id="arsri-content"></div>
+	<div id="arsri-footer"></div>
+
+	<script type="text/javascript" src="./lib/seajs/sea.js"></script>
+	<script type="text/javascript">
+		seajs.config({
+			alias: {
+				'bootstrap': '/lib/bootstrap/bootstrap.min',
+				'jquery': '/lib/jquery/jquery-1.10.2.min'
+			}
+
+		});
+		seajs.use('./modules/main', function(main) {
+			main.init();
+		});
+	</script>
 </body>
 </html>

@@ -1,6 +1,7 @@
 var passport = require('passport'),
 	LocalStrategy = require('passport-local').Strategy,
-	database = require('./db');
+	database = require('./db'),
+	flash = require('connect-flash');
 
 passport.use(new LocalStrategy(
 	function(username, password, done) {
@@ -34,6 +35,8 @@ passport.deserializeUser(function(obj, done) {
 function ensureAuthenticated(req, res, next) {
 	if (req.isAuthenticated()) {
 		return next();
+	} else {
+		res.redirect('/login.html');
 	}
 }
 
@@ -41,7 +44,7 @@ function findUser(q, callback) {
 	var db = database.getConnection();
 	db.collection('users').find(q).toArray(function(err, result) {
 		var user;
-		if (!err) {
+		if (!err && result && result[0]) {
 			user = result[0];
 			user.validPassword = function(password) {
 				if (this.password == password) {
@@ -57,14 +60,25 @@ function findUser(q, callback) {
 
 module.exports = {
 	init: function(app) {
+		app.use(flash());
 		app.use(passport.initialize());
 		app.use(passport.session());
-		app.post('/login', passport.authenticate('local'), function(req, res) {
-			res.send('welcome! ' + req.user.displayName);
+		app.post('/login', passport.authenticate('local', {
+			failureRedirect: '/login.html',
+			failureFlash: true
+		}), function(req, res) {
+			res.redirect('/admin')
 		});
-		app.post('/logout', function(req, res) {
+		app.get('/logout', function(req, res) {
 			req.logout();
 			res.redirect('/');
+		});
+		app.post('/getProfile', function(req, res) {
+			if (req.user) {
+				res.json(req.user);
+			} else {
+				res.send(null);
+			}
 		});
 	},
 

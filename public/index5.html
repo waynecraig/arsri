@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>中铁咨询SGJ-T-CEC-X系列产品</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./lib/pure/pure-min.css">
+    <link rel="stylesheet" type="text/css" href="baby-blue.css">
+
+    <script src="http://yui.yahooapis.com/3.11.0/build/yui/yui-min.js"></script>
+</head>
+<body>
+
+    <div class="pure-g-r active" id="layout">
+        <a href="http://purecss.io/extend/#menu" id="menuLink" class="pure-menu-link active">
+    <span></span>
+</a>
+
+<div class="pure-u active" id="menu">
+    <h1 class="brand-title">中铁咨询</h1>
+    <h2 class="brand-tagline">SGJ-T-CEC-X系列产品</h2>
+    <div class="pure-menu pure-menu-open" id="horizontal-menu">
+            <a class="pure-menu-heading" href=""><img src='./upload/logo_small.png' width='36' height='28'/></a>
+            <ul id = "std-menu-items">
+                <li class="pure-menu-selected"><a href="http://purecss.io/layouts/marketing/#">首页</a></li>
+                <li><a href="http://purecss.io/layouts/marketing/#">单位简介</a></li>
+                <li>
+                    <a href="http://purecss.io/layouts/marketing/#">产品目录</a>
+                    <ul>
+                        <li><a href="#">SGJ-T-CEC-Ⅰ 型轨道几何状态测量仪</a></li>
+                        <li><a href="#">SGJ-T-CEC-Ⅱ 型轨道轨道动态测量双车系统</a></li>
+                        <li><a href="#">SGJ-T-CEC-Ⅲ 型轨道轨道动态测量双车系统</a></li>
+                        <li><a href="#">有砟轨道初捣单轨测量系统</a></li>
+                        <li><a href="#">全站仪推车</a></li>
+                        <li><a href="#">板式无砟轨道CRP(CP Ⅳ)精测精调系统</a></li>
+                    </ul>
+                </li>
+                <li><a href="http://purecss.io/layouts/marketing/#">获奖情况</a></li>
+                <li><a href="http://purecss.io/layouts/marketing/#">联系我们</a></li>
+            </ul>
+        </div>
+        <script>
+            YUI({
+                classNamePrefix: 'pure'
+            }).use('gallery-sm-menu', function (Y) {
+
+                var horizontalMenu = new Y.Menu({
+                    container         : '#horizontal-menu',
+                    sourceNode        : '#std-menu-items',
+                    orientation       : 'vertical',
+                    hideOnOutsideClick: false,
+                    hideOnClick       : false
+                });
+
+                horizontalMenu.render();
+                horizontalMenu.show();
+
+            });
+        </script>
+    </div>
+
+        <div class="pure-u-1" id="main">
+
+            
+
+
+
+
+
+<div class="header">
+    <h1>Extend</h1>
+
+  
+    <h2>Build on top of Pure</h2>
+  
+</div>
+
+
+<div class="content">
+
+    <p>
+        One of our goals when developing Pure was to make it extremely extensible. By including Pure and writing some CSS on top of it, you can ensure that your site or app works in across browsers, while looking truly unique. Best of all, your CSS file size will remain tiny, which is a great thing for mobile users and others with slow connections.
+    </p>
+
+    <aside>
+        <p>
+            Want a quick start? Take a look at some <a href="http://purecss.io/layouts/">layouts</a> that we've built on top of Pure.
+        </p>
+    </aside>
+
+
+    <h2 class="content-subhead">Style Guide</h2>
+
+    <h3>Based on SMACSS</h3>
+    <p>
+        Pure is broken up into a set of responsive modules. From the beginning, we adopted <a href="http://smacss.com/">SMACSS</a> as a convention for writing our CSS. For those who are new to SMACSS, you should give it a quick read, especially the section on <a href="http://smacss.com/book/type-module">module rules</a>.
+    </p>
+
+    <h3>Class Name Conventions</h3>
+    <p>
+        One of the conventions in Pure is for every module to have a standard class name for common rules across a module, and then have additional class names for specific presentational rules for a specific sub-module. All classes start with a <code>pure-</code> prefix to prevent collisions. In addition, we try not to have presentational class names. Instead of calling something <code>pure-form-horizontal</code>, we prefer to call it <code>pure-form-aligned</code>. This prevents a tight coupling between class names and styles, which is good for maintainability.
+    </p>
+
+    <p>
+        For example, let's consider the HTML and CSS for a <a href="http://purecss.io/forms/">Stacked Form</a>:
+    </p>
+
+    <h4>Stacked Form: HTML</h4>
+    <p>
+        A stacked form is created by adding two class names, <code>pure-form</code> and <code>pure-form-stacked</code>.
+    </p>
+
+<pre class="snippet" data-language="html"><code class="rainbow"><span class="support tag"><span class="support tag">&lt;</span><span class="support tag-name">form</span></span> <span class="support attribute">class</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">pure-form pure-form-stacked</span><span class="string quote">"</span><span class="support tag close">&gt;</span>
+    ...
+<span class="support tag"><span class="support tag">&lt;</span><span class="support tag special">/</span><span class="support tag-name">form</span></span><span class="support tag close">&gt;</span></code></pre>
+
+    <h4>Stacked Form: CSS</h4>
+    <p>
+        The two class names serve different purposes. One is used as a general selector to group common rules for all forms, while the other defines specific rules for a stacked form.
+    </p>
+
+<pre class="snippet" data-language="css"><code class="rainbow"><span class="comment">/*
+Standard rules that all Pure Forms have. This includes rules for
+styling .pure-form &lt;inputs&gt;, &lt;fieldsets&gt;, and &lt;legends&gt;, as well as layout
+rules such as vertical alignments.
+*/</span>
+<span class="entity name class">.pure-form</span> { ... }
+
+<span class="comment">/*
+Specific rules that apply to stacked forms. This includes rules
+such as taking child &lt;input&gt; elements and making them display: block
+for the stacked effect.
+*/</span>
+<span class="entity name class">.pure-form-stacked</span>  { ... }</code></pre>
+
+
+    <h2 class="content-subhead">Extending Pure</h2>
+    <p>
+        When you're extending Pure, we recommend that you follow this convention. For instance, if you wanted to create a new type of form, your HTML and CSS should look something like this:
+    </p>
+
+<pre class="snippet" data-language="html"><code class="rainbow"><span class="support tag"><span class="support tag">&lt;</span><span class="support tag-name">form</span></span> <span class="support attribute">class</span><span class="support operator">=</span><span class="string quote">"</span><span class="string value">pure-form pure-form-custom</span><span class="string quote">"</span><span class="support tag close">&gt;</span>
+    ...
+<span class="support tag"><span class="support tag">&lt;</span><span class="support tag special">/</span><span class="support tag-name">form</span></span><span class="support tag close">&gt;</span></code></pre>
+
+<pre class="snippet" data-language="css"><code class="rainbow"><span class="comment">/* add your custom styles in this selector */</span>
+<span class="entity name class">.pure-form-custom</span> { ... }</code></pre>
+
+    <p>
+        One common task that you may wish to do is to style buttons so they look different. The <a href="http://purecss.io/buttons/">Pure Button Documentation</a> has some examples on how you can create buttons with custom sizes and styles by adopting this modular architecture.
+    </p>
+
+    <h2 class="content-subhead">Using the Skin Builder</h2>
+
+    <p>
+        The <a href="http://yui.github.io/skinbuilder/?mode=pure">Skin Builder</a> is a great way to customize the look and feel of Pure without writing any CSS. Just select a single color, and watch Skin Builder work its magic to skin all of Pure's components. You can copy and paste the generated CSS into a stylesheet and get started quickly.
+    </p>
+
+    <p>
+        <a class="pure-button" href="http://yui.github.io/skinbuilder/?mode=pure">Launch Skin Builder</a>
+    </p>
+
+
+    <h2 class="content-subhead">Built on Pure</h2>
+
+    <p>
+        The following third-party modules are built on Pure.
+    </p>
+
+    <dl>
+        <dt><a href="http://tilomitra.github.io/csstypography/">Typography</a></dt>
+        <dd>Simple styling for web typography</dd>
+
+        <dt><a href="http://tilomitra.github.io/cssextras/">Extras</a></dt>
+        <dd>Simple styling for images, thumbnails, badges, contextual menus and alerts</dd>
+    </dl>
+
+
+    <h2 class="content-subhead">Pure + Bootstrap + JavaScript</h2>
+
+    <p>
+        Pure plays well with other libraries, including Bootstrap and jQuery. As a developer, you can pull in Pure as a foundational CSS framework, and then include specific Bootstrap or jQuery modules that your application may require. There are several benefits to doing this:
+    </p>
+
+    <ul>
+        <li>
+            <p>
+                Your website or webapp's CSS will be a lot smaller — up to <em>5X smaller</em> in some cases!
+            </p>
+        </li>
+        <li>
+            <p>
+                You get Pure's minimalist look that's easy to build on top of. No need to overwrite styles!
+            </p>
+        </li>
+        <li>
+            <p>
+                You can take advantage of Bootstrap's ecosystem without pulling in a monolithic Bootstrap CSS file.
+            </p>
+        </li>
+    </ul>
+
+    <p>
+        For example, here's a Bootstrap Modal. It's created by including the Pure CSS Rollup, and just adding Bootstrap's <a href="http://purecss.io/css/bootstrap/modal.css"><code>modal.css</code></a> along with the jQuery plugin.
+    </p>
+
+    <!-- Button to trigger modal -->
+<p>
+    <a href="http://purecss.io/extend/#myModal" role="button" class="pure-button pure-button-primary" data-toggle="modal">
+        Launch Pure + Bootstrap Modal
+    </a>
+</p>
+
+<!-- Modal -->
+<!--
+ * Bootstrap v2.3.2
+ *
+ * Copyright 2012 Twitter, Inc
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Designed and built with all the love in the world @twitter by @mdo and @fat.
+ -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <h1 id="myModalLabel">A Bootstrap Modal with Pure</h1>
+    </div>
+
+    <div class="modal-body">
+        <p>
+            This modal is launched by including <em>just</em> the <code>modal.css</code> and <code>modal.js</code> file from Bootstrap, and including Pure to drive all low-level styles. The result is a fully-functional Modal using just a fraction of the CSS.
+        </p>
+
+        <form class="pure-form pure-form-stacked">
+            <legend>A Stacked Form</legend>
+
+            <label for="email">Email</label>
+            <input id="email" type="text" placeholder="Email">
+
+            <label for="password">Password</label>
+            <input id="password" type="password" placeholder="Password">
+
+            <label for="state">State</label>
+            <select id="state">
+                <option>AL</option>
+                <option>CA</option>
+                <option>IL</option>
+            </select>
+
+            <label class="pure-checkbox">
+                <input type="checkbox"> Remember me
+            </label>
+        </form>
+    </div>
+
+    <div class="modal-footer">
+        <button class="pure-button" data-dismiss="modal" aria-hidden="true">Close</button>
+        <button class="pure-button pure-button-primary">Submit</button>
+    </div>
+</div>
+
+<script src="./index5_files/jquery-1.9.1.js"></script>
+<script src="./index5_files/bootstrap.min.js"></script>
+
+
+</div>
+
+
+            <div class="legal pure-g-r">
+    <div class="pure-u-2-5">
+        <div class="l-box">
+            <p class="legal-license">
+                This site is built with &lt;3 using Pure v0.2.1
+            </p>
+            <p class="legal-license">
+                All code on this site is licensed under the <a href="http://yuilibrary.com/license/">BSD License</a> unless stated otherwise.
+            </p>
+        </div>
+    </div>
+
+    <div class="pure-u-1-5">
+        <div class="l-box legal-logo">
+            <a href="http://yuilibrary.com/">
+                <img src="./index5_files/logo-footer.png" height="30" width="65" alt="YUI logo">
+            </a>
+        </div>
+    </div>
+
+    <div class="pure-u-2-5">
+        <div class="l-box">
+            <ul class="legal-links pure-g">
+                <li class="pure-u-1-2">
+                    <a href="https://github.com/yui/pure/">GitHub Project</a>
+                </li>
+                <li class="pure-u-1-2">
+                    <a href="http://yuilibrary.com/security/">Security Contact Info</a>
+                </li>
+            </ul>
+
+            <p class="legal-copyright">
+                © 2013 Yahoo! Inc. All rights reserved.
+            </p>
+        </div>
+    </div>
+</div>
+
+
+        </div>
+    </div>
+
+    
+    
+
+  
+    <script src="./index5_files/1.5.4.js"></script>
+  
+
+
+
+</body></html>

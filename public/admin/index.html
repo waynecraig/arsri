@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>后台登录</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="../lib/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../lib/bootstrap/bootstrap-responsive.min.css">
+    <link rel="stylesheet" type="text/css" href="../lib/flatui/flat-ui.css">
+    <style type="text/css">
+        .navbar-static-top {
+            background: 
+            margin-bottom:20px;
+        }
+        footer {
+            padding:10px;
+        }
+        .arsri-brand {
+            display: inline-block;
+            margin: 0 30px;
+            line-height: 53px;
+            text-decoration: none;
+            font-size: 1.3em;
+        }
+        #arsri-sidebar {
+            margin-top: 20px;
+        }
+        #arsri-footer {
+            text-align: center;
+            padding: 1em;
+            line-height: 1.7em;
+            background-color: #edeff1;
+            color: #bac1c8;
+            font-size: 15px;
+            margin-top: 20px;
+        }
+        #editor {
+            min-height: 250px;
+            background-color: white;
+            border-collapse: separate; 
+            border: 1px solid rgb(204, 204, 204); 
+            padding: 4px; 
+            box-sizing: content-box; 
+            -webkit-box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 1px 0px inset; 
+            box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 1px 0px inset;
+            border-top-right-radius: 3px; border-bottom-right-radius: 3px;
+            border-bottom-left-radius: 3px; border-top-left-radius: 3px;
+            outline: none;
+        }
+        .form-actions .btn {
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div id='arsri-header' class='navbar navbar-inverse navbar-static-top'></div>
+    <!-- /Header -->
+    <div class='container-fluid'>
+        <div class='row'>
+            <div id='arsri-sidebar' class="span3"></div>
+            <div id='arsri-content' class='span9'></div>
+        </div>
+    </div>
+    <div id='arsri-footer'></div>
+
+    <script type="text/javascript" src="/lib/seajs/sea.js"></script>
+    <script type="text/javascript">
+        seajs.config({
+            alias: {
+                'bootstrap': '/lib/bootstrap/bootstrap.min',
+                'jquery': '/lib/jquery/jquery-1.10.2.min',
+                'ejs': '/lib/ejs/ejs_production',
+                'wysiwyg': '/lib/bootstrap-wysiwyg/bootstrap-wysiwyg'
+            }
+
+        });
+        seajs.use('jquery', function () {
+            seajs.use('../modules/admin', function(admin) {
+                admin.init();
+            }); 
+        });
+    </script>
+</body>
+</html>

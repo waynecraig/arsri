@@ -1,5 +1,5 @@
 var MongoClient = require('mongodb').MongoClient,
-	dbConfig = require('../../resources/dbconfig.js');
+	dbConfig = require('../resources/dbconfig.js');
 
 var connection;
 MongoClient.connect(dbConfig.dbUrl, function(err, db) {
